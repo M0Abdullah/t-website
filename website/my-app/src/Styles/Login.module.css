@@ -1,0 +1,68 @@
+/* Container styling */
+.loginContainer {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 20px;
+  /* margin: 30px; */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Form title */
+.formTitle {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Form group */
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Login button */
+.loginButton {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  background-color: #0056b3;
+}
+
+/* Form footer */
+.formFooter {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.formFooter a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.formFooter a:hover {
+  text-decoration: underline;
+}
