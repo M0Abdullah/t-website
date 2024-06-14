@@ -15,13 +15,29 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your login functionality here
-    console.log('Login data submitted:', formData);
-    // Example: Redirect to dashboard after successful login
-    // Replace '/dashboard' with the desired URL
-    window.location.href = '/dashboard';
+
+    try {
+      const response = await fetch('https://687cda19-f287-4cb4-b8ca-314d4de1dba0.mock.pstmn.io', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+
+      const data = await response.json();
+      const token = data.token;
+      localStorage.setItem('token', token);
+      window.location.href = '/dashboard';
+    } catch (error) {
+      console.error('Login error:', error);
+    }
   };
 
   return (

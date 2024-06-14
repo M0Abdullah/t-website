@@ -18,15 +18,37 @@ export default function SignUp() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form data submitted:', formData);
 
-    // Custom functionality here
-    alert('Sign up successful!');
+    try {
+      const response = await fetch('https://3fdee221-b1af-476d-8ede-1c511d5cedab.mock.pstmn.io', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-    // Example of setting a state to indicate the form has been submitted
-    setSubmitted(true);
+      if (!response.ok) {
+        throw new Error('Sign up failed');
+      }
+      const data = await response.json();
+      console.log('Sign up successful:', data);
+
+      // Example: Display a success message
+      alert('Sign up successful!');
+      setFormData({
+        name: '',
+        email: '',
+        password: ''
+      });
+      setSubmitted(true);
+
+    } catch (error) {
+      console.error('Sign up error:', error);
+      alert('Sign up failed. Please try again.');
+    }
   };
 
   return (
